@@ -56,6 +56,12 @@
   };
   window.xhs = { launchOptions: { miniToolEnv: { buildVersion: buildVersion } }, miniTool: mt };
 
+  // iframe 里 env(safe-area-inset-*) 恒为 0，改用变量提供安全区
+  var insets = shell.cssInsets();
+  Object.keys(insets).forEach(function (k) {
+    document.documentElement.style.setProperty('--safe-area-inset-' + k, insets[k] + 'px');
+  });
+
   // 容器禁用的能力：调用时在面板里标红
   function banned(name) { return function () { shell.log(name, null, 'BANNED 容器内不可用'); }; }
   window.open = banned('window.open');

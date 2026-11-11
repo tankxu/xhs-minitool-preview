@@ -135,6 +135,12 @@ window.__shell = {
       menuButtons: rects()
     };
   },
+  // 页面里的 --safe-area-inset-* 变量（官方模拟器也是注入这组变量）。
+  // 真机全屏模式下只靠 env(safe-area-inset-top) 排版的小工具不会和按钮重叠，所以顶部按“按钮下沿 + 6”估
+  cssInsets: function () {
+    var d = dev();
+    return { top: rects().back.bottom + 6, bottom: d.safeBottom, left: 0, right: 0 };
+  },
   log: function (name, arg, result) {
     var row = document.createElement('div');
     var bad = typeof result === 'string' && /^(FAIL|BANNED|ERROR)/.test(result);
