@@ -136,10 +136,10 @@ window.__shell = {
     };
   },
   // 页面里的 --safe-area-inset-* 变量（官方模拟器也是注入这组变量）。
-  // 真机全屏模式下只靠 env(safe-area-inset-top) 排版的小工具不会和按钮重叠，所以顶部按“按钮下沿 + 6”估
+  // 真机上安全区顶部就是状态栏高度，返回/分享按钮在它下面 44px 高的一行里垂直居中
   cssInsets: function () {
     var d = dev();
-    return { top: rects().back.bottom + 6, bottom: d.safeBottom, left: 0, right: 0 };
+    return { top: d.safeTop, bottom: d.safeBottom, left: 0, right: 0 };
   },
   log: function (name, arg, result) {
     var row = document.createElement('div');

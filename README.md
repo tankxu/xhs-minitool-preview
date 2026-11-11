@@ -50,7 +50,7 @@ git clone https://github.com/tankxu/xhs-minitool-preview.git ~/.claude/skills/xh
 
 - 跑在桌面浏览器里，不是小红书客户端的 WebView。老内核下的 JS 语法、CSS 兼容问题这里看不出来，上线前仍要真机扫码。
 - 按钮位置、安全区、灵动岛尺寸是按真机观感估的，不是官方数值。量到准确值后改 `assets/shell.html` 里的 `DEVICES` 和 `BTN*` 常量。
-- iframe 里 `env(safe-area-inset-*)` 恒为 0，改为注入 `--safe-area-inset-*` 变量（和官方模拟器一样），顶部按按钮下沿 + 6px 估算；用 `var(--safe-area-inset-top, env(safe-area-inset-top))` 写法的小工具能正确避让。
+- iframe 里 `env(safe-area-inset-*)` 恒为 0，改为注入 `--safe-area-inset-*` 变量（和官方模拟器一样），顶部等于状态栏高度，返回/分享按钮在它下面 44px 高的一行里垂直居中，和真机一致；用 `var(--safe-area-inset-top, env(safe-area-inset-top))` 写法的小工具不用改代码就能正常显示。
 - 不模拟 CSP、长按菜单禁用和真实分享面板。
 - 平台官方模拟器是 `redapp dev`，需要更接近官方容器的行为时可以用它。
 
