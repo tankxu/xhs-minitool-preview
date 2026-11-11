@@ -14,7 +14,7 @@ description: 在电脑浏览器里预览小红书小工具：手机外框（iPho
 参数可以是单个小工具目录（含 `index.html`），也可以是装着多个小工具的父目录（自动找 `*/src/index.html`、`*/dist/index.html`、`*/index.html`），预览页顶部下拉切换：
 
 ```bash
-node "<SKILL_DIR>/scripts/preview.mjs" "<小工具目录或父目录>" --open
+node "<SKILL_DIR>/scripts/preview.js" "<小工具目录或父目录>" --open
 ```
 
 - 用后台方式启动（进程要一直跑着），读输出里的 `PREVIEW_URL:` 交给用户；`--open` 会用默认浏览器直接打开。启动前先确认是否已有预览进程在跑，有就复用，别重复起。

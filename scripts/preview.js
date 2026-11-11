@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 小工具本地预览：手机外框 + 模拟小红书返回/分享按钮 + 模拟 window.xhs，保存即刷新。
-// 用法：node preview.mjs <目录>... [--port 5178] [--open]
+// 用法：node preview.js <目录>... [--port 5178] [--open]
 //   目录可以是单个小工具（含 index.html），也可以是装着多个小工具的父目录（自动找 */src|dist/index.html），预览页里切换
 import http from 'node:http';
 import fs from 'node:fs';
@@ -13,7 +13,7 @@ const ASSETS = path.join(HERE, '..', 'assets');
 const args = process.argv.slice(2);
 const flag = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
 const dirArgs = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--port');
-if (!dirArgs.length) { console.error('用法：node preview.mjs <小工具目录或其父目录>... [--port 5178] [--open]'); process.exit(2); }
+if (!dirArgs.length) { console.error('用法：node preview.js <小工具目录或其父目录>... [--port 5178] [--open]'); process.exit(2); }
 
 // 找出所有小工具：name -> { root, title }
 const APPS = new Map();

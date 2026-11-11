@@ -1,0 +1,9 @@
+{
+  "name": "xhs-minitool-preview",
+  "version": "1.0.0",
+  "description": "小红书小工具本地预览模拟器",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "engines": { "node": ">=20" }
+}

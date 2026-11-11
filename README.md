@@ -24,10 +24,10 @@ git clone https://github.com/tankxu/xhs-minitool-preview.git
 cd xhs-minitool-preview
 
 # 先看看自带的示例
-node scripts/preview.mjs examples --open
+node scripts/preview.js examples --open
 
 # 预览自己的小工具：单个目录（含 index.html），或装着多个小工具的父目录
-node scripts/preview.mjs ~/my-minitools --open
+node scripts/preview.js ~/my-minitools --open
 ```
 
 - 父目录下会自动找 `*/src/index.html`、`*/dist/index.html`、`*/index.html`。
@@ -57,7 +57,7 @@ git clone https://github.com/tankxu/xhs-minitool-preview.git ~/.claude/skills/xh
 ## 文件
 
 ```
-scripts/preview.mjs   本地服务：找小工具、提供文件、注入模拟环境、监听改动
+scripts/preview.js    本地服务：找小工具、提供文件、注入模拟环境、监听改动
 assets/shell.html     预览页：手机外框、按钮、状态栏、调用日志
 assets/xhs-mock.js    在小工具里模拟 window.xhs
 examples/demo/        示例小工具
@@ -66,4 +66,4 @@ SKILL.md              Agent Skill 说明
 
 ## 许可
 
-[MIT](LICENSE)
+[MIT](LICENSE.txt)
