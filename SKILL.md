@@ -9,6 +9,8 @@ description: 在电脑浏览器里预览小红书小工具：手机外框（iPho
 
 需要 Node.js 20+，无第三方依赖，不需要 npm install。
 
+源码、截图和更新：https://github.com/tankxu/xhs-minitool-preview（MIT）
+
 ## 启动
 
 参数可以是单个小工具目录（含 `index.html`），也可以是装着多个小工具的父目录（自动找 `*/src/index.html`、`*/dist/index.html`、`*/index.html`），预览页顶部下拉切换：
