@@ -1,0 +1,19 @@
+:root{--top-reserve:44px}
+@supports(padding-top:env(safe-area-inset-top)){:root{--top-reserve:calc(44px + env(safe-area-inset-top))}}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:#fff6f2;color:#2b2523;font:15px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;-webkit-touch-callout:none}
+.app{max-width:480px;margin:0 auto;padding:var(--top-reserve) 20px 32px}
+header{display:flex;align-items:center;font-weight:600;font-size:17px;margin-bottom:16px}
+.dot{width:12px;height:12px;border-radius:50%;background:#ff2442;margin-right:8px}
+.card{background:#fff;border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 2px 12px rgba(255,36,66,0.08)}
+.label{margin:0;color:#8a7f7b;font-size:13px}
+.count{margin:4px 0 14px;font-size:40px;font-weight:700}
+.count span{color:#ff2442}
+button{font:inherit;border-radius:22px;padding:10px 18px;border:0;cursor:pointer}
+.primary{background:#ff2442;color:#fff}
+.secondary{background:#fff;color:#ff2442;border:1px solid #ff2442}
+.actions{display:flex;margin-top:12px}
+.actions>*+*{margin-left:10px}
+.hint{margin:12px 0 0;color:#8a7f7b;font-size:13px}
+.foot{text-align:center;color:#b0a6a2;font-size:12px}

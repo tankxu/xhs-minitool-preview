@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<title>示例小工具</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<main class="app">
+  <header><span class="dot"></span>示例小工具</header>
+  <section class="card">
+    <p class="label">今天点了</p>
+    <p class="count"><span id="count">0</span> 次</p>
+    <button class="primary" id="tap" type="button">点我 +1</button>
+    <p class="hint">次数存在平台 Storage 里，刷新后还在；顶栏点“清存储”可清零。</p>
+  </section>
+  <section class="card">
+    <p class="label">分享海报</p>
+    <div class="actions">
+      <button class="primary" id="post" type="button">发笔记</button>
+      <button class="secondary" id="save" type="button">保存到相册</button>
+    </div>
+    <p class="hint" id="msg">生成一张海报，走一遍保存相册 / 发笔记。</p>
+  </section>
+  <p class="foot">内容从按钮下方 8px 开始排，换机型看看顶部避让。</p>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>
