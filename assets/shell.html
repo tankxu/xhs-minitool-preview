@@ -15,7 +15,7 @@ body{background:var(--bg);color:var(--ink);font:13px/1.5 -apple-system,BlinkMacS
 .bar::-webkit-scrollbar{display:none}
 /* 不用系统原生下拉样式，Safari/Chrome 下高度一致，不会撑出工具栏 */
 .bar select,.bar button,aside .h button{flex:none;height:24px;line-height:22px;padding:0 8px;font-size:12px;border-radius:6px}
-.bar select{-webkit-appearance:none;appearance:none;padding-right:22px;max-width:200px;overflow:hidden;text-overflow:ellipsis;background:#33373d url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239aa1ab' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 8px center}
+.bar select{-webkit-appearance:none;appearance:none;padding-right:22px;max-width:260px;overflow:hidden;text-overflow:ellipsis;background:#33373d url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239aa1ab' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 8px center}
 @media(max-width:620px){.bar .l,.bar .live-text{display:none}.bar select{max-width:130px}}
 .bar .live{margin-left:auto;color:var(--mute)}
 select,button{font:inherit;color:var(--ink);background:#33373d;border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
@@ -215,7 +215,11 @@ function fit() {
 function reload() { $('app').src = '/app/' + encodeURIComponent(state.app) + '/index.html?t=' + Date.now(); }
 
 Object.keys(DEVICES).forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = DEVICES[k].name; $('device').appendChild(o); });
-APPS.forEach(function (a) { var o = document.createElement('option'); o.value = a.name; o.textContent = a.title.split(/\s*[·|｜-]\s*/)[0]; o.title = a.name; $('appSel').appendChild(o); });
+// 标题重名（比如同一工程打出的多个包）时带上目录名区分
+var shortTitle = function (a) { return a.title.split(/\s*[·|｜-]\s*/)[0]; };
+var titleCount = {};
+APPS.forEach(function (a) { titleCount[shortTitle(a)] = (titleCount[shortTitle(a)] || 0) + 1; });
+APPS.forEach(function (a) { var o = document.createElement('option'); o.value = a.name; o.textContent = shortTitle(a) + (titleCount[shortTitle(a)] > 1 ? '（' + a.name + '）' : ''); o.title = a.name; $('appSel').appendChild(o); });
 $('appSel').value = state.app;
 $('appSel').onchange = function () { selectApp(this.value); };
 window.addEventListener('hashchange', function () { var n = decodeURIComponent(location.hash.slice(1)); if (n && n !== state.app) selectApp(n); });
