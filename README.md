@@ -7,7 +7,7 @@
 ## 能做什么
 
 - **手机外框**：默认 iPhone 18 Pro（小灵动岛、超窄边框），还有 18 Pro Max、16/15、14/13 刘海、SE、Android 两档；状态栏黑字/白字可切。
-- **小红书的返回、分享按钮**：画在小工具上层。`getWindowInfo().menuButtons` 返回的就是这两个按钮的位置，顶部要不要让开、让多少，一眼就能看出来。
+- **小红书的返回、“我的”、分享按钮**：照真机画成灰色半透明圆底白图标，浮在小工具上层。`getWindowInfo().menuButtons` 返回的就是这三个按钮的位置（`back`、`me`、`share`），顶部要不要让开、让多少，一眼就能看出来。
 - **模拟 `window.xhs`**：`getWindowInfo`、`getLaunchOptions`、`getStorage` / `setStorage` / `removeStorage`、`writeTempFile`、`saveImageToPhotosAlbum`（弹出保存的图）、`postNote`（弹出模拟发布页，标题超 20 字会报错）。
 - **调用日志**：右侧列出每次容器调用和返回值。JS 报错、未处理的 Promise 拒绝，以及容器里用不了的能力（`window.open`、`prompt`、剪贴板、跨域 fetch、外链和下载链接）会标红。
 - **自动刷新**：改了文件，手机画面自动重新加载。存储会保留，“清存储”可以从头再来。

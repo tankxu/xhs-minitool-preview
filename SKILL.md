@@ -28,7 +28,7 @@ node "<SKILL_DIR>/scripts/preview.js" "<小工具目录或父目录>" --open
 
 - **顶栏**：小工具切换、刷新、清存储、机型、状态栏黑/白字；最右的圆点绿色表示已连上预览服务（改文件会自动刷新），红色表示服务断了。
 - **手机外框**：默认 iPhone 18 Pro（小灵动岛、超窄边框），另有 18 Pro Max、16/15、14/13 刘海、SE、Android 两档。
-- **小红书按钮**：左上返回、右上分享，画在小工具上层，点击只弹提示。`getWindowInfo().menuButtons` 返回的就是这两个按钮在画面里的矩形（`back`、`share`），顶部避让逻辑可以直接看效果。
+- **小红书按钮**：照真机画成灰色半透明圆底白图标，左上返回，右上“我的”和分享，浮在小工具上层，点击只弹提示。`getWindowInfo().menuButtons` 返回的就是这三个按钮在画面里的矩形（`back`、`me`、`share`），顶部避让逻辑可以直接看效果。
 - **模拟 window.xhs**：`launchOptions.miniToolEnv.buildVersion`、`getLaunchOptions`、`getWindowInfo`、`getStorage/setStorage/removeStorage`、`writeTempFile`、`saveImageToPhotosAlbum`（弹出保存的图片）、`postNote`（弹出模拟发布页，展示标题/正文/图片，标题超 20 字报错）。
 - **右侧调用日志**：每次容器调用和返回值；JS 报错、未处理的 Promise 拒绝，以及调用容器禁用能力（`window.open`、`prompt`、剪贴板、跨域 fetch、外链/下载链接）会标红。
 
